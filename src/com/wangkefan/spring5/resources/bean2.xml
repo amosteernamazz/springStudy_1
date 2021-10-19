@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--        配置对象创建-->
+    <bean id="userservice" class="com.wangkefan.spring5.service.UserService">
+<!--        注入servicetest对象-->
+<!--        注入外部bean，对应service和servicetest-->
+<!--        name指的时对应类中创建的属性，ref是指对应bean创建的标签的id值-->
+        <property name="serviceTest" ref="servicetest"></property>
+    </bean>
+    <bean id="servicetest" class="com.wangkefan.spring5.servicetest.ServiceTestClass"></bean>
+</beans>

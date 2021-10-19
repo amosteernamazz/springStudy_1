@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--   创建文件-->
+<!--    使用对应的bean标签完成无参数对象创建-->
+    <bean id = "user" class="com.wangkefan.spring5.test1.User" >
+
+        <!--    DI注入属性-->
+<!--        同时在类中应保证有对应的set方法-->
+        <property name="userName" value="wangkefan"></property>
+        <property name="userAge" value="18"></property>
+<!--        设置参数为null-->
+        <property name="nullshow">
+            <null></null>
+        </property>
+
+<!--        设置为带<>的参数-->
+
+<!--        第一种使用&lt; &gt;转义符号-->
+        <property name="showElement_1" value="&lt; &gt;"></property>
+
+<!--        第二种使用 <![CDATA[<dsaduasds>]]>-->
+
+        <property name="showElement_2">
+            <value><![CDATA[<<beijing>>]]></value>
+        </property>
+
+    </bean>
+<!--    id属性：对象对应别名  class属性：对应class的全路径  有参构造方法-->
+<bean id="userVa" class="com.wangkefan.spring5.test1.User" >
+    <constructor-arg name="userAge" value="20"></constructor-arg>
+    <constructor-arg name="userName" value="nihao"></constructor-arg>
+</bean>
+<!--    p标签注入-->
+    <!--       添加p名称空间在配置文件中，添加约束-->
+<bean id="user_p" class="com.wangkefan.spring5.test1.User" p:userAge="18" p:userName="wangkefan"></bean>
+
+
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="employ" class="com.wangkefan.spring5.test3.Emplo">
+<!--        级联赋值的方式对应bean的引入-->
+        <property name="dept" ref="dept"></property>
+        <!--        除了使用该方法，还可以在employ中进行设置，但需要生成该对象，在对应的class中使用get方法-->
+        <property name="dept.dname" value="wangkefan"></property>
+        <property name="gender" value="nan"></property>
+        <property name="ename" value="wangkefan"></property>
+
+    </bean>
+
+    <bean id="dept" class="com.wangkefan.spring5.test3.Dept">
+<!--        除了使用该方法，还可以在employ中进行设置，但需要生成该对象，在对应的class中使用get方法-->
+        <!--        <property name="dept.dname" value="wangkefan"></property>-->
+        <property name="dname" value="caiwubu"></property>
+    </bean>
+</beans>

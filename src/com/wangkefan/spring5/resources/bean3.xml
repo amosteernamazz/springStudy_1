@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="employ" class="com.wangkefan.spring5.test3.Emplo">
+    <property name="ename" value="wangkefan"></property>
+    <property name="gender" value="nan"></property>
+<!--    设置对象类型属性-->
+    <property name="dept">
+<!--        内部bean对应test3-->
+        <bean id="dept" class="com.wangkefan.spring5.test3.Dept">
+            <property name="dname" value="caizhengbumen"></property>
+        </bean>
+    </property>
+</bean>
+</beans>

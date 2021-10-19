@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+<!--    bean的生命周期-->
+<!--    1.通过构造器创建bean实例（无参数构造器）-->
+<!--    2.为bean的属性设置和其他bean的引用（调用set方法）-->
+<!--    3.调用bean初始化方法（需要进行配置）-->
+<!--    对应bean中的init—method配置-->
+<!--    4.bean获取到-->
+<!--    5.容器关闭，调用bean销毁方法，需要进行配置销毁的方法-->
+    <bean id="beanlife" class="com.wangkefan.spring5.beanLife.BeanLife" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="oname" value="wangkefan"></property>
+    </bean>
+    <!--    bean的后置处理器，bean生命周期有七步-->
+
+    <!--    1.通过构造器创建bean实例（无参数构造器）-->
+    <!--    2.为bean的属性设置和其他bean的引用（调用set方法）-->
+    <!--    3.将bean实例传递bean后置处理器的方法-->
+    <!--    4.调用bean初始化方法（需要进行配置）-->
+    <!--    对应bean中的init—method配置-->
+    <!--    5.将bean传递bean后置处理器的方法-->
+    <!--    6.bean获取到-->
+    <!--    7.容器关闭，调用bean销毁方法，需要进行配置销毁的方法-->
+
+    <!--    后置处理器的添加在外部，在外部声明了继承BeanPostProcessor类之后，自动为所有bean添加后置处理器-->
+    <bean id="mybeanpost" class="com.wangkefan.spring5.beanLife.MyBeanPost"></bean>
+</beans>
